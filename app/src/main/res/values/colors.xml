@@ -7,4 +7,13 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="DarkRed">#8B0000</color>
+    <color name="FireBrick">#B22222</color>
+    <color name="Red">#FF0000</color>
+    <color name="LightSalmon">#FFA07A</color>
+    <color name="Salmon">#FA8072</color>
+    <color name="Orange">#FFA500</color>
+    <color name="BurlyWood">#DEB887</color>
+    <color name="rosy_brown">#BC8F8F</color>
+    <color name="wheat">#F5DEB3</color>
 </resources>
