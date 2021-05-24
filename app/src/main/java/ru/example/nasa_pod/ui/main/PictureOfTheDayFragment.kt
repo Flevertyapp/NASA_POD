@@ -20,6 +20,8 @@ import kotlinx.android.synthetic.main.main_fragment.*
 import ru.example.nasa_pod.R
 import ru.example.nasa_pod.settings.SettingsFragment
 import ru.example.nasa_pod.ui.MainActivity
+import ru.example.nasa_pod.ui.api.ApiActivity
+import ru.example.nasa_pod.ui.apibottom.ApiBottomActivity
 
 
 class PictureOfTheDayFragment : Fragment() {
@@ -60,7 +62,8 @@ class PictureOfTheDayFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.app_bar_fav -> Toast.makeText(context, "Favourite", Toast.LENGTH_SHORT).show()
+            R.id.app_bar_api-> activity?.let { startActivity(Intent(it, ApiActivity::class.java)) }
+            R.id.app_bar_fav -> activity?.let { startActivity(Intent(it, ApiBottomActivity::class.java) )}
             R.id.app_bar_settings -> {
                 activity?.supportFragmentManager?.beginTransaction()
                     ?.replace(R.id.main, SettingsFragment.newInstance())?.addToBackStack(null)
@@ -113,12 +116,10 @@ class PictureOfTheDayFragment : Fragment() {
                         error(R.drawable.ic_no_photo_vector)
                         //placeholder(R.drawable.no_photo)
                     }
-                    //тянем описание. Так норм вытягивать???
                     val title = serverResponseData.title
                     val explanation = serverResponseData.explanation
                     if (!title.isNullOrEmpty()) {
-                        bottom_sheet_container.bottom_sheet_description_header.text =
-                            title //не показывает, может в разметке косяк? данные сюда приходят
+                        bottom_sheet_container.bottom_sheet_description_header.text = title
                     }
                     if (!explanation.isNullOrEmpty()) {
                         bottom_sheet_container.bottom_sheet_description.text = explanation
