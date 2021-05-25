@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="text_style">
+        <item name="fontFamily">@font/monotype</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:background">@color/wheat</item>
+    </style>
+    <style name="button_style">
+        <item name="rippleColor">@color/LightSalmon</item>
+        <item name="strokeWidth">3dp</item>
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerRadius">10dp</item>
+    </style>
+</resources>
