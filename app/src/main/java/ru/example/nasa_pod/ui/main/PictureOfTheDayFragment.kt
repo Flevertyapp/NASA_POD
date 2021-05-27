@@ -35,17 +35,20 @@ class PictureOfTheDayFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.main_fragment, container, false)
+        return inflater.inflate(R.layout.fragment_main_start, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setBottomSheetBehavior(view.findViewById(R.id.bottom_sheet_container))
         //поиск в вики
-        input_layout.setEndIconOnClickListener {
-            startActivity(Intent(Intent.ACTION_VIEW).apply {
-                data = Uri.parse("https://en.wikipedia.org/wiki/${input_edit_text.text.toString()}")
-            })
+        if (input_edit_text != null) {
+            input_layout.setEndIconOnClickListener {
+                startActivity(Intent(Intent.ACTION_VIEW).apply {
+                    data =
+                        Uri.parse("https://en.wikipedia.org/wiki/${input_edit_text.text.toString()}")
+                })
+            }
         }
         viewModel.getData()
             .observe(viewLifecycleOwner, Observer<PictureOfTheDayData> { renderData(it) })
@@ -62,8 +65,12 @@ class PictureOfTheDayFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.app_bar_api-> activity?.let { startActivity(Intent(it, ApiActivity::class.java)) }
-            R.id.app_bar_fav -> activity?.let { startActivity(Intent(it, ApiBottomActivity::class.java) )}
+            R.id.app_bar_api -> activity?.let { startActivity(Intent(it, ApiActivity::class.java)) }
+            R.id.app_bar_fav -> activity?.let {
+                startActivity(
+                    Intent(it, ApiBottomActivity::class.java)
+                )
+            }
             R.id.app_bar_settings -> {
                 activity?.supportFragmentManager?.beginTransaction()
                     ?.replace(R.id.main, SettingsFragment.newInstance())?.addToBackStack(null)
