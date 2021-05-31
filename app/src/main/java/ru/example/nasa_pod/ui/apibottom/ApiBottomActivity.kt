@@ -38,7 +38,7 @@ class ApiBottomActivity : AppCompatActivity() {
             }
             return@setOnNavigationItemSelectedListener true
         }
-        //выбор первого отображвемого элемента
+        //выбор первого отображаемого элемента
         bottom_navigation_view.selectedItemId = R.id.bottom_view_earth
         //бейдж. Берем готовый или создаем новый
         val badge = bottom_navigation_view.getOrCreateBadge(R.id.bottom_view_earth)
