@@ -1,14 +1,21 @@
 package ru.example.nasa_pod.ui.main
 
+import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.style.BackgroundColorSpan
+import android.text.style.ForegroundColorSpan
 import android.transition.ChangeBounds
 import android.transition.ChangeImageTransform
 import android.transition.TransitionManager
 import android.transition.TransitionSet
 import android.view.*
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -113,6 +120,7 @@ class PictureOfTheDayFragment : Fragment() {
         }
     }
 
+    @SuppressLint("ResourceAsColor")
     private fun renderData(data: PictureOfTheDayData) {
         when (data) {
             is PictureOfTheDayData.Success -> {
@@ -131,7 +139,18 @@ class PictureOfTheDayFragment : Fragment() {
                     val title = serverResponseData.title
                     val explanation = serverResponseData.explanation
                     if (!title.isNullOrEmpty()) {
-                        bottom_sheet_container.bottom_sheet_description_header.text = title
+                        val spannableString = SpannableString(title)
+                        spannableString.setSpan(
+                            BackgroundColorSpan(Color.BLUE),
+                            0, spannableString.length,//красим строчку целиком
+                            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+                        spannableString.setSpan(
+                            ForegroundColorSpan(Color.YELLOW),
+                            0, spannableString.length,
+                            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+
+                        bottom_sheet_container.bottom_sheet_description_header.setText(spannableString, TextView.BufferType.SPANNABLE)
+                        //bottom_sheet_container.bottom_sheet_description_header.text = title
                     }
                     if (!explanation.isNullOrEmpty()) {
                         bottom_sheet_container.bottom_sheet_description.text = explanation
