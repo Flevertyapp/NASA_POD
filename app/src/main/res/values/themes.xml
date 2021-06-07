@@ -14,7 +14,9 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
-        <item name="android:forceDarkAllowed">true</item>.
+        <item name="android:forceDarkAllowed">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
 
     </style>
 
@@ -29,5 +31,8 @@
         <item name="colorOnSecondary">@color/Orange</item>
         <item name="colorSurface">@color/Orange</item>
         <item name="android:colorBackground">@color/Red</item>
+        <item name="android:forceDarkAllowed">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
     </style>
 </resources>
