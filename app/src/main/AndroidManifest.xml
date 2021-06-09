@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/NASA_POD">
-        <activity android:name=".ui.MainActivity">
+        <activity android:name=".ui.main.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,6 +23,7 @@
         <activity android:name=".animations.AnimationsActivity" />
         <activity android:name=".ui.apibottom.AnimationsActivityBonus" />
         <activity android:name=".ui.recycler.RecyclerActivity" />
+        <activity android:name=".ui.MainActivity"/>
     </application>
 
 </manifest>
