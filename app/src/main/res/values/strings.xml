@@ -30,4 +30,6 @@
     <string name="tab_text_earth">Earth</string>
     <string name="tab_text_mars">Mars</string>
     <string name="tab_text_weather">Weather</string>
+    <string name="navigation_three">Рекуклер</string>
+    <string name="loading">Loading…</string>
 </resources>

@@ -12,6 +12,7 @@ import ru.example.nasa_pod.R
 import ru.example.nasa_pod.animations.AnimationsActivity
 import ru.example.nasa_pod.ui.api.ApiActivity
 import ru.example.nasa_pod.ui.apibottom.AnimationsActivityBonus
+import ru.example.nasa_pod.ui.recycler.RecyclerActivity
 
 class BottomNavigationDrawerFragment : BottomSheetDialogFragment() {
     override fun onCreateView(
@@ -29,6 +30,7 @@ class BottomNavigationDrawerFragment : BottomSheetDialogFragment() {
             when (menuItem.itemId) {
                 R.id.navigation_one -> activity?.let { startActivity(Intent(it, AnimationsActivity::class.java)) }
                 R.id.navigation_two -> activity?.let { startActivity(Intent(it, AnimationsActivityBonus::class.java)) }
+                R.id.navigation_three -> activity?.let { startActivity(Intent(it, RecyclerActivity::class.java)) }
             }
             true
         }
