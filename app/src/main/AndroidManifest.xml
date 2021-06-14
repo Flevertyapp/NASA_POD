@@ -22,6 +22,7 @@
         <activity android:name=".ui.apibottom.ApiBottomActivity" />
         <activity android:name=".animations.AnimationsActivity" />
         <activity android:name=".ui.apibottom.AnimationsActivityBonus" />
+        <activity android:name=".ui.recycler.RecyclerActivity" />
     </application>
 
 </manifest>
